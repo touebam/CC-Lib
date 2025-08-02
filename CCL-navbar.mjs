@@ -1,6 +1,13 @@
 const template=document.createElement('template') ;
 template.innerHTML=`` ;
 
+const templateLogo=document.createElement('template') ;
+templateLogo.innerHTML=`
+<div class="logo">
+    <img src="" alt="">
+    <div class="logoName"></div>
+</div>` ;
+
 const style=document.createElement('style') ;
 style.innerHTML=`
 ccl-navbar
@@ -71,8 +78,33 @@ class CCLNavbar extends HTMLElement
         switch (element.type) 
         {
             case 'logo' :
-                elementBlock=document.createElement('div') ;
+                elementBlock=document.createElement('ccl-button') ;
                 elementBlock.innerText=element.name ;
+                elementBlock.setAttribute('type', 'text') ;
+                elementBlock.setAttribute('event', element.eventLogo) ;
+                if (element.src)
+                    elementBlock.setAttribute('src', element.src) ;
+                else if (element.icon)
+                    elementBlock.setAttribute('icon', element.icon) ;
+                else
+                    elementBlock.setAttribute('icon', 'fa-'+element.name.substring(0, 1).toLowerCase()) ;
+                const cssLogo=`
+                a
+                {
+                    padding:0 8px !important ;
+                    gap:6px !important ;
+                }
+
+                i
+                {
+                    aspect-ratio:1 ;
+                    height:calc(100% - 6px) !important ;
+                }
+                ` ;
+                customElements.whenDefined('ccl-button').then(() => {
+                    elementBlock.updateCSS(cssLogo);
+                });
+
                 break ;
             case 'button' :
                 elementBlock=document.createElement('ccl-button') ;
