@@ -1,0 +1,39 @@
+body
+{
+    --COLOR-BG-DARK:hsl(0, 0%, 8%) ;
+    --COLOR-BG:hsl(0, 0%, 12%) ;
+    --COLOR-BG-LIGHT:hsl(0, 0%, 32%) ;
+    --COLOR-TEXT:hsl(0, 0%, 95%) ;
+    --COLOR-TEXT-LIGHT:hsl(0, 0%, 70%) ;
+    --COLOR-BORDER:hsl(0, 0%, 30%) ;
+    --COLOR-OVERLAY:rgba(0, 0, 0, .8) ;
+
+    --COLOR-PRIMARY-600:#1b94ff ;
+    --COLOR-PRIMARY:#3ea6ff ;
+    --COLOR-PRIMARY-400:#74bbf9 ;
+    --COLOR-PRIMARY-300:#bee1ff ;
+    --COLOR-PRIMARY-200:#d2e8fc  ;
+}
+
+body.light
+{
+    --COLOR-BG-LIGHT:hsl(0, 0%, 93%) ;
+    --COLOR-BG:hsl(0, 0%, 96%) ;
+    --COLOR-BG-DARK:hsl(0, 0%, 100%) ;
+    --COLOR-TEXT:hsl(0, 0%, 5%) ;
+    --COLOR-TEXT-LIGHT:hsl(0, 0%, 30%) ;
+    --COLOR-BORDER:hsl(0, 0%, 70%) ;
+}
+
+body *
+{
+    margin:0 ;
+    padding:0 ;
+    box-sizing:border-box ;
+}
+
+ccl-button:not(:defined),
+ccl-slide:not(:defined)
+{
+    display:none ;
+}
