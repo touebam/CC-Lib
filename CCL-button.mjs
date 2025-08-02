@@ -222,13 +222,13 @@ class CCLButton extends HTMLElement
 
         const icon=this._root.querySelector('i') ;
         const img=this._root.querySelector('img') ;
-        const iconName=this.getAttribute('icon') ;
+        const iconNames=this.getAttribute('icon') ;
         const iconPosition=this.getAttribute('icon-position') ;
         
-        if (iconName)
+        if (iconNames)
         {
             img.remove() ;
-            icon.classList.add(iconName) ;
+            iconNames.split(' ').forEach(iconName => icon.classList.add(iconName)) ;
 
             if (iconPosition=='right')
             {

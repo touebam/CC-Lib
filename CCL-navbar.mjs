@@ -155,7 +155,7 @@ class CCLNavbar extends HTMLElement
             let fixedWidth=0 ;
             this.querySelectorAll('.fixed').forEach(el => fixedWidth+=el.getBoundingClientRect().width) ;
 
-            const margin=150 ;
+            const margin=200 ;
             const threshold=totalWidth - fixedWidth + margin ;
             
             const updateNavbarState=() => 
