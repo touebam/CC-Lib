@@ -239,7 +239,8 @@ class CCLNavbar extends HTMLElement
                 elementBlock=document.createElement('ccl-button') ;
                 elementBlock.setAttribute('type', 'text')
                 elementBlock.innerText=element.label ;
-                elementBlock.setAttribute('href', element.href) ;
+                if (element.href!=undefined)
+                    elementBlock.setAttribute('href', element.href) ;
                 break ;
         }
         
