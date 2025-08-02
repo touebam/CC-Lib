@@ -115,15 +115,15 @@ ccl-sidebar .logoContent .logo
     color:var(--COLOR-TEXT) ;
     display:flex ;
     height:50px ;
-    width:100% ;
     align-items:center ;
     opacity:0 ;
     transition:all var(--TRANSITION-SHORT) ;
+    width:0 ;
 }
 ccl-sidebar.active .logoContent .logo
 {
     opacity:1 ;
-    width:0 ;
+    width:100% ;
     overflow:hidden ;
     flex-grow:1 ;
     margin-right:4px ;

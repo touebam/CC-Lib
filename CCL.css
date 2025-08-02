@@ -23,6 +23,7 @@ body.light
     --COLOR-TEXT:hsl(0, 0%, 5%) ;
     --COLOR-TEXT-LIGHT:hsl(0, 0%, 30%) ;
     --COLOR-BORDER:hsl(0, 0%, 70%) ;
+    --COLOR-OVERLAY:rgba(255, 255, 255, .95) ;
 }
 
 body *
