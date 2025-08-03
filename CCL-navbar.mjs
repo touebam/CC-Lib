@@ -59,8 +59,8 @@ ccl-navbar.collapsed #navbarMenuButton
     display:flex ;
     align-items:center ;
     position:absolute ;
-    top:0 ;
-    bottom:0 ;
+    top:50% ;
+    transform:translateY(-50%) ;
     right:12px ;
 }
 ccl-navbar.collapsed

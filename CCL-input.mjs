@@ -118,7 +118,7 @@ class CCLInput extends HTMLElement
             placeholder.remove() ;
 
         let input=this._root.querySelector('input') ;
-        const type=this.getAttribute('type') ;
+        let type=this.getAttribute('type') ;
         if (type=='textarea')
         {
             const textarea=document.createElement('textarea') ;
