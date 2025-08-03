@@ -812,7 +812,13 @@ class CCLSidebar extends HTMLElement
 
                             const a=document.createElement('a') ;
                             if (link.href)
+                            {
                                 a.href=link.href ;
+                                if (link.target)
+                                {
+                                    a.target=link.target ;
+                                }
+                            }
                             else
                             {
                                 a.addEventListener('click', () => 
@@ -894,9 +900,12 @@ class CCLSidebar extends HTMLElement
                                 button.setAttribute('icon', 'fa-'+item.label.substring(0, 1).toLowerCase()) ;
 
                         button.innerText=item.label ;
-                        //console.log(button)
                         if (item.href)
+                        {
                             button.setAttribute('href', item.href) ;
+                            if (item.target)
+                                button.setAttribute('target', item.target)
+                        }
                         else
                             button.addEventListener('click', () => 
                             {

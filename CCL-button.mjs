@@ -261,7 +261,12 @@ class CCLButton extends HTMLElement
         
         const href=this.getAttribute('href') ;
         if (href)
+        {
             button.setAttribute('href', href) ;
+            const target=this.getAttribute('target') ;
+            if (target)
+                button.setAttribute('target', target)
+        }
         else
         {
             const eventCode=this.getAttribute('event') ;

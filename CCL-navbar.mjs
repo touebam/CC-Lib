@@ -247,6 +247,8 @@ class CCLNavbar extends HTMLElement
                 elementBlock.innerText=element.label ;
                 if (element.href!=undefined)
                     elementBlock.setAttribute('href', element.href) ;
+                if (element.target!=undefined)
+                    elementBlock.setAttribute('target', element.target) ;
                 break ;
         }
         
