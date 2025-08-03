@@ -815,8 +815,11 @@ class CCLSidebar extends HTMLElement
                                 a.href=link.href ;
                             else
                             {
-                                if (typeof window[link.eventLink]==='function')
-                                    a.addEventListener('click', () => window[link.eventLink]()) ;
+                                a.addEventListener('click', () => 
+                                {
+                                    const func=new Function(link.event) ; 
+                                    func() ;
+                                }) ;
                             }
                             a.innerText=link.label ;
                             li.append(a) ;
@@ -895,7 +898,11 @@ class CCLSidebar extends HTMLElement
                         if (item.href)
                             button.setAttribute('href', item.href) ;
                         else
-                            button.setAttribute('event', item.eventLink) ;
+                            button.addEventListener('click', () => 
+                            {
+                                const func=new Function(item.event) ; 
+                                func() ;
+                            }) ;
 
                         const tooltip=listItem.querySelector('.tooltip') ;
                         tooltip.innerText=item.label ;

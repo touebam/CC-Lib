@@ -209,7 +209,7 @@ class CCLNavbar extends HTMLElement
                 elementBlock=document.createElement('ccl-button') ;
                 elementBlock.innerText=element.name ;
                 elementBlock.setAttribute('type', 'text') ;
-                elementBlock.setAttribute('event', element.eventLogo) ;
+                elementBlock.setAttribute('event', element.event) ;
                 if (element.src)
                     elementBlock.setAttribute('src', element.src) ;
                 else if (element.icon)

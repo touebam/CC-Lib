@@ -128,7 +128,7 @@ class CCLInput extends HTMLElement
         }
         else
         {
-            if (type=='')
+            if (type==null)
                 type='text' ;
             input.setAttribute('type', type) ;
         }
@@ -140,7 +140,7 @@ class CCLInput extends HTMLElement
         const name=this.getAttribute('name') ;
         if (name!=null)
             input.setAttribute('name', name) ;
-        
+
         const icon=this._root.querySelector('.icon i') ;
         const iconNames=this.getAttribute('icon') ;
         if (iconNames)
