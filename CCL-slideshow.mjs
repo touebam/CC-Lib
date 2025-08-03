@@ -39,7 +39,7 @@ class CCLSlideShow extends HTMLElement
 
     showSlide(index) 
     { 
-        if (index >= 0 && index < this.total) 
+        if (index != this.index && index >= 0 && index < this.total) 
             { 
             const currentSlide=this.querySelector('ccl-slide:nth-child(' + (parseInt(this.index) + 1) + ')') ; 
             const nextSlide=this.querySelector('ccl-slide:nth-child(' + (parseInt(index) + 1) + ')') ; 

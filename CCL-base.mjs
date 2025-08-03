@@ -15,7 +15,7 @@ class CCLBase extends HTMLElement
     {
         this._root=this.attachShadow({mode:'open'}) ;
         this._root.append(template.content.cloneNode(true)) ;
-        this._root.append(style) ;
+        this._root.append(style.cloneNode(true)) ;
     }
 }
 

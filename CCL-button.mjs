@@ -36,7 +36,7 @@ a
     align-items:center ;
     justify-content:space-between ;
     text-decoration:none ;
-    /*min-width:40px ;*/
+    min-width:40px ;
 }
 
 :host span
