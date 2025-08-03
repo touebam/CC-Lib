@@ -210,7 +210,11 @@ class CCLNavbar extends HTMLElement
                 elementBlock.innerText=element.name ;
                 elementBlock.classList.add('logo') ;
                 elementBlock.setAttribute('type', 'text') ;
-                elementBlock.setAttribute('event', element.event) ;
+                if (element.href!=undefined)
+                    elementBlock.setAttribute('href', element.href) ;
+                else
+                    elementBlock.setAttribute('event', element.event) ;
+                
                 if (element.src)
                     elementBlock.setAttribute('src', element.src) ;
                 else if (element.icon)
