@@ -33,6 +33,7 @@ style.innerHTML=`
 .inputBox input
 {
     height:45px ;
+    border-radius:8px ;
 }
 .inputBox input,
 .inputBox textarea
@@ -53,6 +54,7 @@ style.innerHTML=`
 {
     padding:0 5px ;
     padding-top:8px ;
+    border-radius:0 8px 8px 0 ;
 }
     
 .inputBox .icon
@@ -135,6 +137,10 @@ class CCLInput extends HTMLElement
         if (required!=undefined)
             input.setAttribute('required', true) ;
 
+        const name=this.getAttribute('name') ;
+        if (name!=null)
+            input.setAttribute('name', name) ;
+        
         const icon=this._root.querySelector('.icon i') ;
         const iconNames=this.getAttribute('icon') ;
         if (iconNames)
