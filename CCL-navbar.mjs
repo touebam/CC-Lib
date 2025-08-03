@@ -208,6 +208,7 @@ class CCLNavbar extends HTMLElement
             case 'logo' :
                 elementBlock=document.createElement('ccl-button') ;
                 elementBlock.innerText=element.name ;
+                elementBlock.classList.add('logo') ;
                 elementBlock.setAttribute('type', 'text') ;
                 elementBlock.setAttribute('event', element.event) ;
                 if (element.src)
