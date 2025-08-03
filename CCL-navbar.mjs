@@ -32,6 +32,7 @@ ccl-navbar
     justify-content:space-between ;
     box-shadow:1px 0 5px rgba(0, 0, 0, 0.1) ;
     overflow-x:hidden ;
+    flex-shrink:0 ;
 }
 
 ccl-navbar .wrapper
@@ -107,6 +108,8 @@ class CCLNavbar extends HTMLElement
     constructor()
     {
         super() ;
+        this.openCollapsed=this.openCollapsed.bind(this) ;
+        this.closeCollapsed=this.closeCollapsed.bind(this) ;
     }
 
     connectedCallback()
@@ -181,19 +184,22 @@ class CCLNavbar extends HTMLElement
                 font-size:1.3rem ;
             }
         ` ;
-        openBtn.addEventListener('click', () => {
-            this.collapsedContainer.classList.add('displayed');
-        });
-        closeBtn.addEventListener('click', () => {
-            this.collapsedContainer.classList.remove('displayed');
-        });
+        openBtn.addEventListener('click', this.openCollapsed);
+        closeBtn.addEventListener('click', this.closeCollapsed);
 
         customElements.whenDefined('ccl-button').then(() => {
             openBtn.updateCSS(cssMenuButton) ;
             closeBtn.updateCSS(cssMenuButton) ;
         }) ;
     }
-
+    openCollapsed()
+    {
+        this.collapsedContainer.classList.add('displayed');
+    }
+    closeCollapsed()
+    {
+        this.collapsedContainer.classList.remove('displayed');
+    }
     createElementBlock(element) 
     {
         let elementBlock ;

@@ -1,6 +1,3 @@
-const template=document.createElement('template') ;
-template.innerHTML=`Hello World !` ;
-
 const style=document.createElement('style') ;
 style.innerHTML=`
 ccl-slideshow
@@ -25,7 +22,7 @@ class CCLSlideShow extends HTMLElement
         this.applyAnimations() ;
         this.total=this.slides.length ;
         this.index=0 ;
-        this.showSlide(this.index) ;
+        this.showSlide(this.index, true) ;
 
         const prevButtons=this.querySelectorAll('.slide-previous') ;
         prevButtons.forEach(prev => 
@@ -37,10 +34,11 @@ class CCLSlideShow extends HTMLElement
         ) ;
     }
 
-    showSlide(index) 
+    showSlide(index, init=false) 
     { 
-        if (index != this.index && index >= 0 && index < this.total) 
-            { 
+
+        if (init || (index!=this.index && index >= 0 && index < this.total))
+        { 
             const currentSlide=this.querySelector('ccl-slide:nth-child(' + (parseInt(this.index) + 1) + ')') ; 
             const nextSlide=this.querySelector('ccl-slide:nth-child(' + (parseInt(index) + 1) + ')') ; 
             
@@ -117,12 +115,10 @@ class CCLSlideShow extends HTMLElement
 
                 case "slide-down":
                     css += `
-                        /* Direction normale (index augmente) */
                         ccl-slide:not(.active) { transform: translateY(-50%) ; }
                         ccl-slide.active { transform: translateY(0) ; }
                         ccl-slide.exiting { transform: translateY(50%) ; }
                         
-                        /* Direction inverse (index diminue) */
                         .reverse-direction ccl-slide:not(.active) { transform: translateY(50%) ; }
                         .reverse-direction ccl-slide.exiting { transform: translateY(-50%) ; }
                     ` ;
@@ -130,12 +126,10 @@ class CCLSlideShow extends HTMLElement
 
                 case "slide-up":
                     css += `
-                        /* Direction normale (index augmente) */
                         ccl-slide:not(.active) { transform: translateY(50%) ; }
                         ccl-slide.active { transform: translateY(0) ; }
                         ccl-slide.exiting { transform: translateY(-50%) ; }
                         
-                        /* Direction inverse (index diminue) */
                         .reverse-direction ccl-slide:not(.active) { transform: translateY(-50%) ; }
                         .reverse-direction ccl-slide.exiting { transform: translateY(50%) ; }
                     ` ;
@@ -143,12 +137,10 @@ class CCLSlideShow extends HTMLElement
 
                 case "slide-left":
                     css += `
-                        /* Direction normale (index augmente) */
                         ccl-slide:not(.active) { transform: translateX(50%) ; }
                         ccl-slide.active { transform: translateX(0) ; }
                         ccl-slide.exiting { transform: translateX(-50%) ; }
                         
-                        /* Direction inverse (index diminue) */
                         .reverse-direction ccl-slide:not(.active) { transform: translateX(-50%) ; }
                         .reverse-direction ccl-slide.exiting { transform: translateX(50%) ; }
                     ` ;
@@ -156,12 +148,10 @@ class CCLSlideShow extends HTMLElement
 
                 case "slide-right":
                     css += `
-                        /* Direction normale (index augmente) */
                         ccl-slide:not(.active) { transform: translateX(-50%) ; }
                         ccl-slide.active { transform: translateX(0) ; }
                         ccl-slide.exiting { transform: translateX(50%) ; }
                         
-                        /* Direction inverse (index diminue) */
                         .reverse-direction ccl-slide:not(.active) { transform: translateX(50%) ; }
                         .reverse-direction ccl-slide.exiting { transform: translateX(-50%) ; }
                     ` ;
